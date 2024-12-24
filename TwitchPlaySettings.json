@@ -23,16 +23,18 @@
   "EnableEdgeworkCameras": true,
   "EnableModuleCameraLights": true,
   "ModuleCameraLightIntensity": 0.5,
-  "EnableLastModuleZoom": true,
+  "EnableLastModuleZoom": false,
   "RepositoryUrl": "https://ktane.timwi.de/",
   "AnalyzerUrl": "https://ktane.timwi.de/More/Logfile%20Analyzer.html",
+  "ScoringSheetId": "1G6hZW0RibjW7n72AkXZgDTHZ-LKj0usRkbAwxSPhcqA",
+  "AutoReturnToSetupMinutes": 0,
   "EnableModeratorsCommand": true,
   "EnableTrollCommands": false,
   "EnableLetterCodes": false,
   "AllowSolvingCurrentBombWithCommandsDisabled": true,
   "BombLiveMessageDelay": 0,
   "ShowUnrecognizedCommandError": true,
-  "ModuleClaimLimit": 3,
+  "ModuleClaimLimit": 5,
   "QueuedClaimOverride": true,
   "FindClaimLimit": 3,
   "FindClaimTerms": 3,
@@ -41,11 +43,21 @@
   "VoteCountdownTime": 60,
   "EnableVoting": true,
   "EnableVoteSolve": true,
+  "EnableVSVoteSolve": true,
+  "MaxVoteSolvesPerBomb": -1,
+  "VoteSolveBossNormalModuleRatio": 0.5,
+  "VoteSolveBossMinSeconds": 60,
+  "VoteSolveNonBossRatio": 0.25,
+  "MinScoreForVoteSolve": 9,
+  "EnableMissionVoteSolve": false,
+  "VoteSolveRewardDecrease": 0.25,
+  "MaxVoteDetonatesPerBomb": 3,
+  "EnableVoteSolveAutomaticNoForClaims": false,
   "EnableAutoProfiles": true,
   "MinimumYesVotes": {
     "Detonation": 67,
     "VSModeToggle": 67,
-    "Solve": 51
+    "Solve": 67
   },
   "DynamicScoreMultiplier": 1.0,
   "EnableTwitchPlayShims": true,
@@ -62,10 +74,12 @@
   "MinScoreForNewbomb": 0,
   "StrikePenalty": 5,
   "ModuleToStrikeRatio": 6,
+  "NormalModeSecondsPerModule": 120,
   "PacingEventsOnRunBomb": true,
   "AllowSheetDisabledModules": false,
+  "BombFlipCooldown": 5,
   "EnableTimeModeForEveryone": false,
-  "TimeModeStartingTime": 10.0,
+  "TimeModeStartingTime": 22.0,
   "TimeModeStartingMultiplier": 9.0,
   "TimeModeMaxMultiplier": 25.0,
   "TimeModeMinMultiplier": 1.0,
@@ -86,7 +100,7 @@
   "EnableTrainingModeForEveryone": true,
   "EnableFilledgeworkForEveryone": false,
   "EnableDMGForEveryone": true,
-  "TrainingModeDetonationTime": 0,
+  "TrainingModeDetonationTime": 180,
   "MinTimeLeftForClaims": 60,
   "MinUnsolvedModulesLeftForClaims": 3,
   "VSHPMultiplier": 5.0,
@@ -232,6 +246,8 @@
     "VSMode",
     "NoUnreleased",
     "NoOnOfficialTP",
+    "NoMajorMods",
+    "NoBossModules",
     "NoTimeNeedies",
     "No0",
     "NoOtherNeedies",
@@ -239,9 +255,10 @@
     "No1",
     "No2",
     "No3",
-    "No4",
-    "NoBossModules"
+    "NoPseudoNeedy",
+    "No4"
   ],
+  "ToggleableModules": [],
   "BombCustomMessages": {
     "ttks": "Turn the Keys is a module on this bomb. It dictates some modules be delayed until others are finished. Until Turn the Keys is finished, you should avoid doing the following modules:\nLeft Key: Maze, Memory, Complicated Wires, Wire Sequence, Cryptography\nRight Key: Simon Says, Semaphore, Combination Lock, Astrology, Switches, Plumbing",
     "ttksleft": "These modules need to be solved: Password, Who's on First, Keypad, Crazy Talk, Listening, Orientation Cube.\nAvoid solving these modules: Maze, Memory, Complicated Wires, Wire Sequences, Cryptography.\nLeft Key is turned from Low to High.",
@@ -259,9 +276,10 @@
     "about": "Twitch Plays: KTaNE is an alternative way of playing !ktane. Unlike the original game, you play as both defuser and expert, and defuse the bomb by sending special commands to the chat. Try !help for more information!",
     "discord": "The official KTaNE Discord can be found here: https://discord.gg/ktane",
     "tpdiscord": "The KTaNE TP Discord can be found here: https://discord.gg/CYVWy3n",
-    "ircimg": "This image on the irc manager was created by ししく. The link to the original image is here: https://www.pixiv.net/en/artworks/84089169",
-    "dmghelp": "With “!dmg run”, you can run custom bombs. Specify “ALL_SOLVABLES” if you want any modules to show up, “ALL_MODS” to have any modded module show up, etc. Use the repo, https://ktane.timwi.de/, and tick Module ID in the settings to display if you want to run specific modules. See “!dmgvar” for other variables that can be set.",
-    "dmgvar": "Prepending “#*” to any mod ID will add multiples of that. Strike limit can be specified with “#x”, starting time with “#:##”, disable pacing events with “nopacing”, and bring all of the modules to the front with “frontonly” In addition, encasing the module set with “()” will allow for creating multiple bombs at once. Just be sure not to run too many.",
+    "ircimg": "This image on the irc manager was created by ひらご. The link to the original image is here: https://www.pixiv.net/en/artworks/113156555",
+    "dmghelp": "With “!dmg run”, you can run custom bombs. Specify “ALL_SOLVABLES” if you want any modules to show up, “ALL_MODS” to have any modded module show up, or “ALL_VANILLA” for vanilla modules. Use the repo, https://ktane.timwi.de/, and tick Module ID in the settings to display if you want to run specific modules. See “!dmgvar” for other variables that can be set.",
+    "dmgvar": "Prepending “#*” to any mod ID will add multiples of that. Strike limit can be specified with “#x”, starting time with “#:##”, disable pacing events with “nopacing”, and bring all of the modules to the front with “frontonly” In addition, encasing the module set with “()” will allow for creating multiple bombs at once. Just be sure not to run too many. You can insert descriptions by appending “//” after the modules and variables the group wants, followed by any overrides that the user insists on doing.",
+    "profiles list": "There are too many profiles to list. To prevent chat flood, the most notable modules here are NoMajorMods, NoBossMods",
     "commands": "The list of EVERY single command for TP KTANE can be found here: https://samfundev.github.io/KtaneTwitchPlays/"
   },
   "IgnoreCommands": [
@@ -270,9 +288,11 @@
     "uptime",
     "rotation",
     "mic",
-    "jukeboxcopyright",
     "so",
+    "songs",
     "supportmine",
+    "sr",
+    "game",
     "viewerbattlehelp",
     "viewerbattlegames"
   ],
@@ -364,25 +384,6 @@
         }
       ],
       "MinModules": 1,
-      "MaxModules": 101,
-      "Enabled": true,
-      "Hidden": false
-    },
-    "fair+modneedy": {
-      "DisplayName": "Fair + Mod Needy",
-      "Pools": [
-        {
-          "Definition": "ALL_SOLVABLE",
-          "Weight": 1.0
-        },
-        {
-          "Definition": "ALL_NEEDY, MODS",
-          "Weight": 0.0,
-          "Reward": 20,
-          "Time": 0
-        }
-      ],
-      "MinModules": 2,
       "MaxModules": 101,
       "Enabled": true,
       "Hidden": false
@@ -501,18 +502,17 @@
       "Enabled": true,
       "Hidden": false
     },
-    "easy": {
+    "mixedeasy": {
       "DisplayName": "Easy Mix",
       "Pools": [
         {
-          "Definition": "ALL_SOLVABLE",
+          "Definition": "AllSolvable",
           "Weight": 0.5
         },
         {
-          "Definition": "SCORE, <= 7",
+          "Definition": "Score: <= 7",
           "Weight": 0.5,
-          "Reward": 3,
-          "Time": 120
+          "Reward": 3
         }
       ],
       "MinModules": 1,
@@ -571,15 +571,15 @@
       "Enabled": true,
       "Hidden": false
     },
-    "medium": {
+    "mixedmedium": {
       "DisplayName": "Medium Mix",
       "Pools": [
         {
-          "Definition": "ALL_SOLVABLE",
+          "Definition": "AllSolvable",
           "Weight": 0.5
         },
         {
-          "Definition": "SCORE, > 7, <= 14",
+          "Definition": "Score: > 7, <= 14",
           "Weight": 0.5
         }
       ],
@@ -637,16 +637,22 @@
       "Enabled": true,
       "Hidden": false
     },
-    "hard": {
+    "mixedhard": {
       "DisplayName": "Hard Mix",
       "Pools": [
         {
-          "Definition": "ALL_SOLVABLE",
+          "Definition": "AllSolvable",
           "Weight": 0.5
         },
         {
-          "Definition": "SCORE, > 14, <= 25",
-          "Weight": 0.5,
+          "Definition": "Score: > 14, <= 25",
+          "Weight": 0.3,
+          "Reward": 10,
+          "Time": 240
+        },
+        {
+          "Definition": "Score: > 14",
+          "Weight": 0.2,
           "Reward": 10,
           "Time": 240
         }
@@ -690,6 +696,234 @@
       "Enabled": true,
       "Hidden": false
     },
+    "easy": {
+      "DisplayName": "Easy Mix",
+      "Pools": [
+        {
+          "Definition": "ALL_SOLVABLE",
+          "Weight": 0.5
+        },
+        {
+          "Definition": "SCORE, <= 7",
+          "Weight": 0.5,
+          "Reward": 3,
+          "Time": 120
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "medium": {
+      "DisplayName": "Medium Mix",
+      "Pools": [
+        {
+          "Definition": "ALL_SOLVABLE",
+          "Weight": 0.5
+        },
+        {
+          "Definition": "SCORE, > 7, <= 14",
+          "Weight": 0.5
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "hard": {
+      "DisplayName": "Hard Mix",
+      "Pools": [
+        {
+          "Definition": "ALL_SOLVABLE",
+          "Weight": 0.5
+        },
+        {
+          "Definition": "SCORE, > 14, <= 25",
+          "Weight": 0.5,
+          "Reward": 10,
+          "Time": 240
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "expert": {
+      "DisplayName": "Strict Expert",
+      "Pools": [
+        {
+          "Definition": "Score: <= 8",
+          "Weight": 0.2,
+          "Reward": 3,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 9, <= 15",
+          "Weight": 0.3
+        },
+        {
+          "Definition": "Score: >= 16, <= 24",
+          "Weight": 0.3,
+          "Reward": 8,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 25",
+          "Weight": 0.2,
+          "Reward": 10,
+          "Time": 240
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "easy+boss": {
+      "DisplayName": "Strict Easy",
+      "Pools": [
+        {
+          "Definition": "Score: <= 8",
+          "Weight": 0.5,
+          "Reward": 3,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 9, <= 15",
+          "Weight": 0.4
+        },
+        {
+          "Definition": "Score: >= 16, <= 24",
+          "Weight": 0.1,
+          "Reward": 8,
+          "Time": 90
+        },
+        {
+          "Definition": "BossModule",
+          "Weight": 0.0,
+          "Reward": 0,
+          "Time": 300
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "medium+boss": {
+      "DisplayName": "Strict Medium",
+      "Pools": [
+        {
+          "Definition": "Score: <= 8",
+          "Weight": 0.4,
+          "Reward": 3,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 9, <= 15",
+          "Weight": 0.35
+        },
+        {
+          "Definition": "Score: >= 16, <= 24",
+          "Weight": 0.2,
+          "Reward": 8,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 25",
+          "Weight": 0.05,
+          "Reward": 10,
+          "Time": 240
+        },
+        {
+          "Definition": "BossModule",
+          "Weight": 0.0,
+          "Reward": 0,
+          "Time": 300
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "hard+boss": {
+      "DisplayName": "Strict Hard",
+      "Pools": [
+        {
+          "Definition": "Score: <= 8",
+          "Weight": 0.3,
+          "Reward": 3,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 9, <= 15",
+          "Weight": 0.35
+        },
+        {
+          "Definition": "Score: >= 16, <= 24",
+          "Weight": 0.25,
+          "Reward": 8,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 25",
+          "Weight": 0.1,
+          "Reward": 10,
+          "Time": 240
+        },
+        {
+          "Definition": "BossModule",
+          "Weight": 0.0,
+          "Reward": 0,
+          "Time": 300
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "expert+boss": {
+      "DisplayName": "Strict Expert",
+      "Pools": [
+        {
+          "Definition": "Score: <= 8",
+          "Weight": 0.2,
+          "Reward": 3,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 9, <= 15",
+          "Weight": 0.3
+        },
+        {
+          "Definition": "Score: >= 16, <= 24",
+          "Weight": 0.3,
+          "Reward": 8,
+          "Time": 90
+        },
+        {
+          "Definition": "Score: >= 25",
+          "Weight": 0.2,
+          "Reward": 10,
+          "Time": 240
+        },
+        {
+          "Definition": "BossModule",
+          "Weight": 0.0,
+          "Reward": 0,
+          "Time": 300
+        }
+      ],
+      "MinModules": 1,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
     "variety": {
       "DisplayName": "Variety Mix",
       "Pools": [
@@ -719,11 +953,91 @@
       "Enabled": true,
       "Hidden": false
     },
+    "variety+boss": {
+      "DisplayName": "Variety + Boss",
+      "Pools": [
+        {
+          "Definition": "Score: <= 4",
+          "Weight": 0.11,
+          "Reward": 2,
+          "Time": 60
+        },
+        {
+          "Definition": "Score: <= 9",
+          "Weight": 0.15,
+          "Reward": 3,
+          "Time": 120
+        },
+        {
+          "Definition": "Score: >= 5, <= 14",
+          "Weight": 0.15
+        },
+        {
+          "Definition": "Score: >= 5, <= 19",
+          "Weight": 0.13
+        },
+        {
+          "Definition": "Score: >= 10, <= 24",
+          "Weight": 0.13
+        },
+        {
+          "Definition": "Score: >= 10, <= 29",
+          "Weight": 0.11,
+          "Reward": 8,
+          "Time": 180
+        },
+        {
+          "Definition": "Score: >= 20",
+          "Weight": 0.09,
+          "Reward": 10,
+          "Time": 240
+        },
+        {
+          "Definition": "AllSolvable",
+          "Weight": 0.0865
+        },
+        {
+          "Definition": "DisabledBy: NoBossModules",
+          "Weight": 0.0435,
+          "Reward": 0,
+          "Time": 300
+        },
+        {
+          "Definition": "DisabledBy: NoBossModules",
+          "Weight": 0.0,
+          "Reward": 0,
+          "Time": 300
+        }
+      ],
+      "MinModules": 2,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
+    "fair+modneedy": {
+      "DisplayName": "Fair + Mod Needy",
+      "Pools": [
+        {
+          "Definition": "ALL_SOLVABLE",
+          "Weight": 1.0
+        },
+        {
+          "Definition": "ALL_NEEDY, MODS",
+          "Weight": 0.0,
+          "Reward": 20,
+          "Time": 0
+        }
+      ],
+      "MinModules": 2,
+      "MaxModules": 101,
+      "Enabled": true,
+      "Hidden": false
+    },
     "why": {
       "DisplayName": "Why?",
       "Pools": [
         {
-          "Definition": "SCORE, > 25",
+          "Definition": "SCORE, >= 30",
           "Weight": 1.0,
           "Reward": 40,
           "Time": 1200
@@ -780,7 +1094,9 @@
   "HoldableInvalidCommand": "@{1}, that command for Holdable !{0} is invalid.",
   "HoldableCommandError": "@{1}, Holdable !{0} responded with the following error: {2}",
   "AwardSolve": "VoteYea {1} solved Module {0} ({3})! +{2} points. VoteYea",
+  "AwardSolveNoPoints": "VoteYea {1} solved Module {0} ({2})! VoteYea",
   "AwardVsSolve": "VoteYea {1} solved Module {0} ({3})! +{2} points. -{4} HP from {5}. VoteYea",
+  "AwardVsSolveNoPoints": "VoteYea {1} solved Module {0} ({2})! -{3} HP from {4}. VoteYea",
   "AwardStrike": "VoteNay Module {0} ({6}) got {1} strike{2}! {7} points from {4}{5} VoteNay",
   "AwardVsStrike": "VoteNay Module {0} ({6}) got {1} strike{2}! -{7} HP from {4}. {8} points from {9}{5} VoteNay",
   "AwardHoldableStrike": "VoteNay Holdable !{0} got {1} strike{2}! {3} points from {4}{5} VoteNay",
@@ -823,7 +1139,7 @@
   "TakeInProgress": "@{0}, there is already a takeover attempt for module {1} ({2}) in progress.",
   "ModuleIsMine": "{0} confirms he/she is still working on {1} ({2}).",
   "TooManyClaimed": "{0}, you may only have {1} claimed modules. The claim has been queued.",
-  "TooManyClaimedOverride": "{0}, you may only have {1} claimed modules, unless all of your claimed modules are in the command queue. The claim has been queued.",
+  "TooManyClaimedQueue": "ItsBoshyTime {0}, you may only have {1} claimed modules, and {2} ({3}) is not in the command queue. The claim has been queued.",
   "NoUnclaimed": "{0}, there are no more unclaimed modules.",
   "ModulePlayer": "Module {0} ({2}) was claimed by {1}.",
   "AlreadyClaimed": "@{2}, module {0} ({3}) is currently claimed by {1}. If you think they have abandoned it, type !{0} take to free it up.",
@@ -846,17 +1162,19 @@
   "TrainingModeCommandDisabled": "@{0}, You have no permission to enable/disable Training Mode",
   "RunCommandDisabled": "@{0}, You have no permission to use the !run command.",
   "ProfileCommandDisabled": "@{0}, profile management is currently disabled.",
+  "ReturningAutomatically": "You all are taking a while to decide. Let's go back to setup and think about it there.",
   "RetryInactive": "Retry is inactive. Returning to setup instead.",
   "RetryModeOrProfileChange": "There has been a change to profiles and/or game modes since the last attempt. Returning to setup instead.",
   "ProfileActionUseless": "That profile ({0}) is already {1}.",
   "ProfileNotWhitelisted": "That profile ({0}) is not accessible/inexistant for Twitch Plays. Sorry.",
   "ProfileListEnabled": "Currently enabled profiles: {0}",
-  "ProfileListAll": "All profiles: {0}",
+  "ProfileListAll": "There are too many profiles to list. A list of all available profiles can be found on https://profiles.marksam.net Missing profiles can be contacted via TP Discord.",
   "AddedUserPower": "Added access levels ({0}) to user \"{1}\"",
   "RemoveUserPower": "Removed access levels ({0}) from user \"{1}\"",
-  "BombHelp": "The Bomb: !bomb hold [pick up] | !bomb drop | !bomb turn [turn to the other side] | !bomb edgework [show the widgets on the sides] | !bomb top [show one side; sides are Top/Bottom/Left/Right | !bomb time [time remaining] | !bomb timestamp [bomb start time]",
+  "BombHelp": "The Bomb: !bomb hold [pick up] | !bomb drop | !bomb turn [turn to the other side] | !bomb edgework [sends to chat of edgework] | !bomb top [show one side; sides are Top/Bottom/Left/Right | !bomb time [time remaining] | !bomb timestamp [bomb start time]",
   "BlankBombEdgework": "Not set, use !edgework <edgework> to set!\nUse !bomb edgework or !bomb edgework 45 to view the bomb edges.",
   "BombEdgework": "Edgework: {0}",
+  "BombEdgeworkFor": "Edgework for {0} ({1}): {2} (bomb {3})",
   "BombTimeRemaining": "panicBasket [{0}] out of [{1}].",
   "BombTimeStamp": "The Date/Time this bomb started is {0:F}",
   "BombDetonateCommand": "panicBasket It's gonna blow!",
@@ -864,11 +1182,13 @@
   "BombStatusVsMode": "Time on clock: {0}, Starting time: {1}, Good HP: {2}, Evil HP: {3}, Reward: {4}",
   "BombStatus": "Time remaining: {0} out of {1}, Strikes: {2}/{3}, Solves: {4}/{5}, Reward: {6}",
   "NotesSpaceFree": "",
-  "TrainingModeFreeSpace": "Training mode in effect. Type !newbomb force solve this bomb, or !bomb endtrainingmode to detonate the bomb, and return to setup room.",
+  "TrainingModeFreeSpace": "Training mode in effect. !newbomb to force solve all bombs, or !bomb endtrainingmode to detonate the bomb, and return to setup room.",
   "Notes": "Notes {0}: {1}",
   "NotesTaken": "Notes Taken for Note Slot {0}: {1}",
   "NotesAppended": "Notes appended to Note Slot {0}: {1}",
   "NoteSlotCleared": "Note Slot {0} Cleared.",
+  "CurrentMission": "Current mission: {0}. {1}",
+  "CurrentMissionNull": "There is no mission running.",
   "GiveBonusPoints": "{0} awarded {1} points by {2}",
   "GiveBonusSolves": "{0} awarded {1} solves by {2}",
   "GiveBonusStrikes": "{0} awarded {1} strikes by {2}",
